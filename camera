@@ -1,3 +1,5 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 /**
  * Write a description of class Camera here.
  * 
@@ -7,6 +9,7 @@
 public class Camera extends Beveiliging
 {
     private int hoek;
+    private int turnDegrees = 1;
     public Camera(){
         GreenfootImage image = getImage();  
         image.scale(image.getWidth() - 200, image.getHeight() - 100);  
@@ -16,7 +19,6 @@ public class Camera extends Beveiliging
     public Camera(int hoek){
         setHoek(hoek);
     }
-    private int turnDegrees = 1;
     /**
      * Act - do whatever the Camera wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -33,12 +35,18 @@ public class Camera extends Beveiliging
         correctRotationPoint();
     }
     private void draaien(){
-        if(getRotation() == hoek){
+        if(getRotation() == (hoek)){
             turnDegrees = turnDegrees*-1;
         }
         else if(getRotation() == (hoek+90)){
             turnDegrees = turnDegrees*-1;
         }        
+        else if(getRotation() == (hoek+180)){
+            turnDegrees = turnDegrees*-1;
+        }
+        else if(getRotation() == (hoek+270)){
+            turnDegrees = turnDegrees*-1;
+        }
         turn(turnDegrees);
     }
     private void correctRotationPoint(){
